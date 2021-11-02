@@ -28,6 +28,7 @@ describe('Regression test suite',() => {
         cy.get('#app > div > form > div.field.action > button').click()
         cy.contains('Tester Hotel Overview')
     })
+    /*
     it('Create and delete room',() =>{
         cy.get(':nth-child(1) > .btn').click()
         cy.contains('Create Room')
@@ -46,7 +47,26 @@ describe('Regression test suite',() => {
         cy.get('.menu > :nth-child(2)').click()
         cy.contains('Floor 2, Room 103').should('not.exist')
         
-        
+    }) 
+    */
+    it('Edit room', () =>{
+        cy.get(':nth-child(1) > .btn').click()
+        cy.contains('Create Room')
+        /*cy.get(':nth-child(2) > .action').click()
+        cy.get('.menu > :nth-child(1)').click()
+        cy.get(':nth-child(3) > select').select('single')
+        cy.get(':nth-child(4) > input').clear().type('202')
+        cy.get(':nth-child(5) > input').clear().type('2')
+        cy.get('.checkbox').click()
+        cy.get(':nth-child(7) > input').clear().type('1850')
+        cy.get(':nth-child(8) > select').select('balcony')
+        cy.get('.blue').click()
+        cy.contains('Create Room') */
+        cy.contains('.rooms > :nth-child(2)','Floor 2, Room 202') 
+        cy.contains(':nth-child(2) > :nth-child(2) > .category','single')
+        cy.contains(':nth-child(2) > :nth-child(2) > .available','false')
+        cy.contains(':nth-child(2) > :nth-child(2) > .price','1850kr')
+        cy.contains(':nth-child(2) > :nth-child(2) > .features > .feature','balcony')
     })
 
 })
