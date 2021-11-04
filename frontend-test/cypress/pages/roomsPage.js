@@ -3,7 +3,6 @@
 // elements
 const titleOfRoomsPage = 'Create Room'
 const createRoomButton = 'h2 > .btn'
-const createRoomAssertion = 'New Room'
 const dotMenuEdit = '.menu > :nth-child(1)'
 const dotMenuDelete = '.menu > :nth-child(2)'
 const backButton = ':nth-child(3) > .btn'
@@ -22,6 +21,7 @@ function goToCreateRoom(cy){
  
 function deleteRoom(cy, roomNumberID, roomName){
     cy.get(roomNumberID +' > .action').click()
+    cy.wait(300)
     cy.get(dotMenuDelete).click()
     cy.contains(roomName).should('not.exist')
 
@@ -38,7 +38,7 @@ function goBack(cy){
 }
 
 function assertRoom(cy, roomName){
-    cy.contains(cy, roomName)
+    cy.get(':nth-child(2)').contains(roomName)
 }
 
 
@@ -48,5 +48,6 @@ module.exports = {
     goToCreateRoom,
     deleteRoom,
     goToEditRoom,
-    goBack 
+    goBack,
+    assertRoom 
 }

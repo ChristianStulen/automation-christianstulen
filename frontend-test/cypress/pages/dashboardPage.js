@@ -4,7 +4,7 @@
 const logoutButton = '.user > .btn'
 const titleOfDashboardPage = 'Testers Hotel'
 const roomsButton =':nth-child(1) > .btn'
-const clientsButton = ':nth-child(2) > .btn'
+const clientsButton = '#app > div > div > div:nth-child(2) > a'
 const billsButton = ':nth-child(3) > .btn'
 const reservationButton = ':nth-child(4) > .btn'
 

@@ -11,11 +11,10 @@ function checkTitleOfIndexPage(cy){
     cy.title().should('eq', titleOfIndexPage)
 }
 
-function performValidLogin(cy, username, password, contentToConfirm){
+function performValidLogin(cy, username, password){
     cy.get(usernameTextField).type(username)
     cy.get(passwordTextField).type(password)
     cy.get(loginButton).click()
-    cy.contains(contentToConfirm)
 }
     
 
