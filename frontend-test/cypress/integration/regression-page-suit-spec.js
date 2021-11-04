@@ -24,7 +24,7 @@ describe(' Test suite', function(){
 
     it('Create and delete room',() =>{
         indexFuncs.performValidLogin(cy, loginName, password, 'Tester Hotel Overview' )
-        dashboardFuncs.
+        dashboardFuncs.checkTitleOfIndexPage
 
         cy.get(':nth-child(1) > .btn').click() //click Rooms
         cy.contains('Create Room')

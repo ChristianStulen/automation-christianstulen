@@ -9,7 +9,7 @@ const billsButton = ':nth-child(3) > .btn'
 const reservationButton = ':nth-child(4) > .btn'
 
 // actions / functions
-function checkTitleOfIndexPage(cy){
+function checkTitleOfDashboardPage(cy){
     cy.title().should('eq', titleOfDashboardPage)
 }
 
@@ -36,7 +36,10 @@ function goToReservation(cy){
 
 // export
 module.exports = {
-    checkTitleOfIndexPage,
+    checkTitleOfDashboardPage,
     performLogout,
-    goToEditRoom
+    goToRooms,
+    goToClient,
+    goToReservation,
+    goToBills
 }

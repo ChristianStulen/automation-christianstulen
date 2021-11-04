@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 // elements
-const titleOfRoomsPage = 'Rooms'
+const titleOfRoomsPage = 'Create Room'
 const createRoomButton = 'h2 > .btn'
 const createRoomAssertion = 'New Room'
 const dotMenuEdit = '.menu > :nth-child(1)'
@@ -12,7 +12,7 @@ const backButton = ':nth-child(3) > .btn'
 
 // actions / functions
 function checkTitleOfRooms(cy){
-    cy.title().should('eq', titleOfRoomsPage)
+    cy.contains(titleOfRoomsPage)
 
 }
 function goToCreateRoom(cy){
@@ -37,12 +37,16 @@ function goBack(cy){
     cy.get(backButton).click()
 }
 
+function assertRoom(cy, roomName){
+    cy.contains(cy, roomName)
+}
+
 
 // export
-module.export{
+module.exports = {
     checkTitleOfRooms,
     goToCreateRoom,
     deleteRoom,
     goToEditRoom,
-    goBack
+    goBack 
 }
