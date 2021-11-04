@@ -13,19 +13,21 @@ describe(' Test suite', function(){
     beforeEach(()=>{
         cy.visit('http://localhost:3000/login')
         indexFuncs.checkTitleOfIndexPage(cy)
+
+        indexFuncs.performValidLogin(cy, loginName, password, 'Tester Hotel Overview' )
+        dashboardFuncs.performLogout(cy, 'Login')
     })
 
     // test case
+    /*
     it('Perform login and logout', function(){
         indexFuncs.performValidLogin(cy, loginName, password, 'Tester Hotel Overview' )
         dashboardFuncs.performLogout(cy, 'Login')
         
     })
-
+    */
     it('Create and delete room',() =>{
-        indexFuncs.performValidLogin(cy, loginName, password, 'Tester Hotel Overview' )
-        dashboardFuncs.
-
+        //login
         cy.get(':nth-child(1) > .btn').click() //click Rooms
         cy.contains('Create Room')
         cy.get('h2 > .btn').click()
