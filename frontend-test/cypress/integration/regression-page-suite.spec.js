@@ -98,7 +98,7 @@ describe(' Test suite', function(){
         
 
     })
-
+    // Edits all the values of a room
     it('Edit room', () =>{
         indexFuncs.performValidLogin(cy, loginName, password )
         dashboardFuncs.checkTitleOfDashboardPage(cy)

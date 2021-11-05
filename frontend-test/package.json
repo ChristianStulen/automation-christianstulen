@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "cypress:open": "cypress open",
+    "cypress:run":"cypress run --reporter mochawesome",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -118,6 +119,9 @@
     "mimic-fn": "^2.1.0",
     "minimatch": "^3.0.4",
     "minimist": "^1.2.5",
+    "mocha": "^5.2.0",
+    "mochawesome": "^7.0.0",
+    "mochawesome-merge": "^4.2.0",
     "ms": "^2.1.2",
     "npm-run-path": "^4.0.1",
     "object-assign": "^4.1.1",

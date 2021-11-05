@@ -1,0 +1,176 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-05T10:00:00.203Z",
+    "end": "2021-11-05T10:01:26.540Z",
+    "duration": 86337,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d409aaa7-4153-4450-bb59-d8e7b4a6898c",
+      "title": "",
+      "fullFile": "cypress/integration/regression-page-suite.spec.js",
+      "file": "cypress/integration/regression-page-suite.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ff24247d-b128-48ed-bca1-25d8779d42d2",
+          "title": " Test suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Perform login and logout",
+              "fullTitle": " Test suite Perform login and logout",
+              "timedOut": null,
+              "duration": 5605,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "indexFuncs.performValidLogin(cy, loginName, password);",
+              "err": {},
+              "uuid": "2a5cc8ff-7a6c-420c-90d1-b844a3b1a72f",
+              "parentUUID": "ff24247d-b128-48ed-bca1-25d8779d42d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigate everywhere",
+              "fullTitle": " Test suite Navigate everywhere",
+              "timedOut": null,
+              "duration": 14300,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "indexFuncs.performValidLogin(cy, loginName, password);\ndashboardFuncs.checkTitleOfDashboardPage(cy);\ndashboardFuncs.goToRooms(cy);\nroomsFuncs.checkTitleOfRooms(cy);\nroomsFuncs.goBack(cy);\ndashboardFuncs.checkTitleOfDashboardPage(cy);\ndashboardFuncs.goToClient(cy);\nclientsFuncs.checkTitleOfClients(cy);\nclientsFuncs.goBack(cy);\ndashboardFuncs.checkTitleOfDashboardPage(cy);\ndashboardFuncs.goToBills(cy);\nbillsFuncs.checkTitleOfBills(cy);\nbillsFuncs.goBack(cy);\ndashboardFuncs.checkTitleOfDashboardPage(cy);\ndashboardFuncs.goToReservation(cy);\nreservationsFuncs.checkTitleOfReservations(cy);\nreservationsFuncs.goBack(cy);\ndashboardFuncs.checkTitleOfDashboardPage(cy);",
+              "err": {},
+              "uuid": "14c3a4b9-b714-4714-ac3a-edcdc4800323",
+              "parentUUID": "ff24247d-b128-48ed-bca1-25d8779d42d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create and delete room",
+              "fullTitle": " Test suite Create and delete room",
+              "timedOut": null,
+              "duration": 13829,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "indexFuncs.performValidLogin(cy, loginName, password);\ndashboardFuncs.checkTitleOfDashboardPage(cy);\ndashboardFuncs.goToRooms(cy);\nroomsFuncs.checkTitleOfRooms(cy);\nroomsFuncs.goToCreateRoom(cy);\ncreateroomFuncs.checkTitleOfCreateRoom(cy);\ncreateroomFuncs.addCategory(cy, 'single');\ncreateroomFuncs.addRoomNumber(cy, '303');\ncreateroomFuncs.addFloorNumber(cy, '3');\ncreateroomFuncs.addAvailability(cy, true);\ncreateroomFuncs.addPrice(cy, '3500');\ncreateroomFuncs.addFeature(cy, 'sea_view');\ncreateroomFuncs.saveNewRoom(cy);\nroomsFuncs.checkTitleOfRooms(cy);\nroomsFuncs.assertRoomName(cy, ':nth-child(3)', 'Floor 3, Room 303');\nroomsFuncs.deleteRoom(cy, ':nth-child(3)', 'Floor 3, Room 303');",
+              "err": {},
+              "uuid": "ad68b109-0f09-4454-bfbb-d9c792d52625",
+              "parentUUID": "ff24247d-b128-48ed-bca1-25d8779d42d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create a room",
+              "fullTitle": " Test suite Create a room",
+              "timedOut": null,
+              "duration": 11615,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "indexFuncs.performValidLogin(cy, loginName, password);\ndashboardFuncs.checkTitleOfDashboardPage(cy);\ndashboardFuncs.goToRooms(cy);\nroomsFuncs.checkTitleOfRooms(cy);\nroomsFuncs.goToCreateRoom(cy);\ncreateroomFuncs.checkTitleOfCreateRoom(cy);\ncreateroomFuncs.addCategory(cy, 'double');\ncreateroomFuncs.addRoomNumber(cy, '203');\ncreateroomFuncs.addFloorNumber(cy, '2');\ncreateroomFuncs.addAvailability(cy, true);\ncreateroomFuncs.addPrice(cy, '2500');\ncreateroomFuncs.addFeature(cy, 'sea_view');\ncreateroomFuncs.saveNewRoom(cy);\nroomsFuncs.checkTitleOfRooms(cy);\nroomsFuncs.assertRoomName(cy, ':nth-child(3)', 'Floor 2, Room 203');",
+              "err": {},
+              "uuid": "e893966c-1a41-4488-8f2d-c9dff63dda14",
+              "parentUUID": "ff24247d-b128-48ed-bca1-25d8779d42d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Edit room",
+              "fullTitle": " Test suite Edit room",
+              "timedOut": null,
+              "duration": 13906,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "indexFuncs.performValidLogin(cy, loginName, password);\ndashboardFuncs.checkTitleOfDashboardPage(cy);\ndashboardFuncs.goToRooms(cy);\nroomsFuncs.checkTitleOfRooms(cy);\nroomsFuncs.goToEditRoom(cy, ':nth-child(3)');\neditroomFuncs.checkTitleOfEditRoom(cy, 'Room: 3');\neditroomFuncs.editCategory(cy, 'single');\neditroomFuncs.editRoomNumber(cy, '202');\neditroomFuncs.editFloorNumber(cy, '2');\neditroomFuncs.changeAvailability(cy, true);\neditroomFuncs.editPrice(cy, '1850');\neditroomFuncs.editFeature(cy, 'balcony');\neditroomFuncs.saveEditedRoom(cy);\nroomsFuncs.checkTitleOfRooms(cy);\nroomsFuncs.assertRoomName(cy, ':nth-child(3)', 'Floor 2, Room 202');\nroomsFuncs.assertRoomCategory(cy, ':nth-child(3)', 'single');\nroomsFuncs.assertRoomAvailability(cy, ':nth-child(3)', 'false');\nroomsFuncs.assertRoomPrice(cy, ':nth-child(3)', '1850kr');\nroomsFuncs.assertRoomFeatures(cy, ':nth-child(3)', 'balcony');",
+              "err": {},
+              "uuid": "4806d4e9-6057-4c2d-b2da-e082dcbc7de3",
+              "parentUUID": "ff24247d-b128-48ed-bca1-25d8779d42d2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2a5cc8ff-7a6c-420c-90d1-b844a3b1a72f",
+            "14c3a4b9-b714-4714-ac3a-edcdc4800323",
+            "ad68b109-0f09-4454-bfbb-d9c792d52625",
+            "e893966c-1a41-4488-8f2d-c9dff63dda14",
+            "4806d4e9-6057-4c2d-b2da-e082dcbc7de3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 59255,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.0"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.0.0"
+    }
+  }
+}
