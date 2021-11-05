@@ -18,7 +18,7 @@ describe(' Test suite', function(){
 
     beforeEach(()=>{
         cy.visit('http://localhost:3000/login')
-        indexFuncs.checkTitleOfIndexPage(cy)
+        indexFuncs.checkTitleOfIndexPage(cy, 'Login')
     })
 
     afterEach(()=>{
@@ -31,6 +31,7 @@ describe(' Test suite', function(){
     // Log in and out
     it('Perform login and logout', function(){
         indexFuncs.performValidLogin(cy, loginName, password )
+        dashboardFuncs.checkTitleOfDashboardPage(cy)
     })
 
     // Checks if you can navigate back and forth in the diffrent menues
@@ -79,7 +80,7 @@ describe(' Test suite', function(){
     })
     
     // Creates a room
-    it('Create a room',() =>{
+    it('Create room',() =>{
         indexFuncs.performValidLogin(cy, loginName, password )
         dashboardFuncs.checkTitleOfDashboardPage(cy)
         dashboardFuncs.goToRooms(cy)
@@ -108,13 +109,13 @@ describe(' Test suite', function(){
         editroomFuncs.checkTitleOfEditRoom(cy, 'Room: 3')
         editroomFuncs.editCategory(cy, 'single')
         editroomFuncs.editRoomNumber(cy, '202')
-        editroomFuncs.editFloorNumber(cy, '2')
+        editroomFuncs.editFloorNumber(cy, '1')
         editroomFuncs.changeAvailability(cy, true)
         editroomFuncs.editPrice(cy, '1850')
         editroomFuncs.editFeature(cy, 'balcony')
         editroomFuncs.saveEditedRoom(cy)
         roomsFuncs.checkTitleOfRooms(cy)
-        roomsFuncs.assertRoomName(cy, ':nth-child(3)', 'Floor 2, Room 202')
+        roomsFuncs.assertRoomName(cy, ':nth-child(3)', 'Floor 1, Room 202')
         roomsFuncs.assertRoomCategory(cy, ':nth-child(3)', 'single')
         roomsFuncs.assertRoomAvailability(cy, ':nth-child(3)', 'false')
         roomsFuncs.assertRoomPrice(cy, ':nth-child(3)', '1850kr')
@@ -124,12 +125,12 @@ describe(' Test suite', function(){
     
     after(()=>{
         cy.visit('http://localhost:3000/login')
-        indexFuncs.checkTitleOfIndexPage(cy)
+        indexFuncs.checkTitleOfIndexPage(cy, 'Login')
         indexFuncs.performValidLogin(cy, loginName, password )
         dashboardFuncs.goToRooms(cy)
         roomsFuncs.checkTitleOfRooms(cy)
-        roomsFuncs.assertRoomName(cy, ':nth-child(3)', 'Floor 2, Room 202')
-        roomsFuncs.deleteRoom(cy, ':nth-child(3)', 'Floor 2, Room 202')
+        roomsFuncs.assertRoomName(cy, ':nth-child(3)', 'Floor 1, Room 202')
+        roomsFuncs.deleteRoom(cy, ':nth-child(3)', 'Floor 1, Room 202')
         dashboardFuncs.performLogout(cy, 'Login')
     })
    
