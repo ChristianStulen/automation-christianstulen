@@ -4,6 +4,7 @@ import * as indexFuncs from '../pages/indexPage'
 import * as dashboardFuncs from '../pages/dashboardPage'
 import * as roomsFuncs from '../pages/roomsPage'
 import * as createroomFuncs from '../pages/createRoomPage'
+import * as editroomFuncs from '../pages/editRoomPage'
 import * as billsFuncs from '../pages/billsPage'
 import * as clientsFuncs from '../pages/clientsPage'
 import * as reservationsFuncs from '../pages/reservationsPage'
@@ -26,15 +27,13 @@ describe(' Test suite', function(){
     
 
     // test cases
-    
+ 
     // Log in and out
     it('Perform login and logout', function(){
         indexFuncs.performValidLogin(cy, loginName, password )
-        
-        
     })
 
-    // Checks if you can navigate back and forth on the diffrent menues
+    // Checks if you can navigate back and forth in the diffrent menues
    it('Navigate everywhere', () =>{
     indexFuncs.performValidLogin(cy, loginName, password )
     dashboardFuncs.checkTitleOfDashboardPage(cy)
@@ -74,7 +73,7 @@ describe(' Test suite', function(){
         createroomFuncs.addFeature(cy, 'sea_view')
         createroomFuncs.saveNewRoom(cy)
         roomsFuncs.checkTitleOfRooms(cy)
-        roomsFuncs.assertRoom(cy, 'Floor 3, Room 303')
+        roomsFuncs.assertRoomName(cy, ':nth-child(3)', 'Floor 3, Room 303')
         roomsFuncs.deleteRoom(cy, ':nth-child(3)', 'Floor 3, Room 303')
         
     })
@@ -95,10 +94,33 @@ describe(' Test suite', function(){
         createroomFuncs.addFeature(cy, 'sea_view')
         createroomFuncs.saveNewRoom(cy)
         roomsFuncs.checkTitleOfRooms(cy)
-        roomsFuncs.assertRoom(cy, 'Floor 2, Room 203')
+        roomsFuncs.assertRoomName(cy, ':nth-child(3)', 'Floor 2, Room 203')
         
 
     })
+
+    it('Edit room', () =>{
+        indexFuncs.performValidLogin(cy, loginName, password )
+        dashboardFuncs.checkTitleOfDashboardPage(cy)
+        dashboardFuncs.goToRooms(cy)
+        roomsFuncs.checkTitleOfRooms(cy)
+        roomsFuncs.goToEditRoom(cy, ':nth-child(3)')
+        editroomFuncs.checkTitleOfEditRoom(cy, 'Room: 3')
+        editroomFuncs.editCategory(cy, 'single')
+        editroomFuncs.editRoomNumber(cy, '202')
+        editroomFuncs.editFloorNumber(cy, '2')
+        editroomFuncs.changeAvailability(cy, true)
+        editroomFuncs.editPrice(cy, '1850')
+        editroomFuncs.editFeature(cy, 'balcony')
+        editroomFuncs.saveEditedRoom(cy)
+        roomsFuncs.checkTitleOfRooms(cy)
+        roomsFuncs.assertRoomName(cy, ':nth-child(3)', 'Floor 2, Room 202')
+        roomsFuncs.assertRoomCategory(cy, ':nth-child(3)', 'single')
+        roomsFuncs.assertRoomAvailability(cy, ':nth-child(3)', 'false')
+        roomsFuncs.assertRoomPrice(cy, ':nth-child(3)', '1850kr')
+        roomsFuncs.assertRoomFeatures(cy, ':nth-child(3)', 'balcony') 
+    })
+    
     
     after(()=>{
         cy.visit('http://localhost:3000/login')
@@ -106,8 +128,9 @@ describe(' Test suite', function(){
         indexFuncs.performValidLogin(cy, loginName, password )
         dashboardFuncs.goToRooms(cy)
         roomsFuncs.checkTitleOfRooms(cy)
-        roomsFuncs.assertRoom(cy, 'Floor 2, Room 203')
-        roomsFuncs.deleteRoom(cy, ':nth-child(3)', 'Floor 2, Room 203')
+        roomsFuncs.assertRoomName(cy, ':nth-child(3)', 'Floor 2, Room 202')
+        roomsFuncs.deleteRoom(cy, ':nth-child(3)', 'Floor 2, Room 202')
+        dashboardFuncs.performLogout(cy, 'Login')
     })
    
 
