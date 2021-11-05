@@ -1,14 +1,13 @@
 /// <reference types="cypress" />
 
 // elements
-const titleOfIndexPage = 'Testers Hotel'
 const usernameTextField = ':nth-child(1) > input'
 const passwordTextField = ':nth-child(2) > input'
 const loginButton = '.btn'
 
 // actions / functions
-function checkTitleOfIndexPage(cy){
-    cy.title().should('eq', titleOfIndexPage)
+function checkTitleOfIndexPage(cy, contentToConfirm){
+    cy.contains(contentToConfirm)
 }
 
 function performValidLogin(cy, username, password){
